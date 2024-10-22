@@ -1,0 +1,34 @@
+<div class="container">
+    <p class="text-center fs-1 mb-4">Crear Producto</p>
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+        <p class="text-center fs-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem ratione, ab nulla facere dolores velit sed optio nam necessitatibus porro eligendi perferendis eius exercitationem voluptatibus amet ullam, et laudantium a.</p>
+    
+        <div class="mb-2">
+            <label for="exampleInputEmail1" class="form-label"></label>
+            <input type="text" class="form-control" name="nombre-producto" placeholder="Nombre del producto*" [(ngModel)]="producto.nombre" #nombre="ngModel" required minlength="3">
+        </div>
+
+        <div *ngIf="nombre.invalid" class="text-danger">{{ mss }}</div>
+    
+        <div class="mb-1">
+            <label for="exampleFormControlTextarea1" class="form-label"></label>
+            <textarea class="form-control" rows="3" name="descriocion" placeholder="Descripción"></textarea>
+        </div>
+    
+        <div class="mb-1">
+            <label for="exampleInputEmail1" class="form-label"></label>
+            <input type="text" class="form-control" name="precio" placeholder="Precio*" [(ngModel)]="producto.precio" #precio="ngModel" required minlength="1">
+        </div>
+
+        <div *ngIf="mss" class="text-danger">{{ mss }}</div>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label"></label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div *ngIf="res" class="text-success">{{ res }}</div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary rounded-pill">Enviar</button> <!-- Forma ovalada -->
+        </div>
+    </form>
+</div>
